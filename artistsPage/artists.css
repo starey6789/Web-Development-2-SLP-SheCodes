@@ -1,0 +1,29 @@
+.backgroundTopBox {
+    background-color: #383970; 
+    width: 90%;
+    height: 300px;
+    margin: 50px 0px 50px 100px;
+    right: 0;
+    border-radius: 10px;
+    padding: 20px;
+    color: white; /* text color */
+}
+
+.backgroundRightBox {
+    background-color: #383970; 
+    width: 500px;             /* fixed width for vertical box */
+    height: 340px;
+    border-radius: 10px;
+    padding: 10px;
+
+    text-align: center;
+    color: white;
+
+    position: absolute;       /* position relative to page or parent */
+    bottom: 0;                /* stick to bottom */
+    right: 0;                 /* stick to right */
+    max-height: 90vh;         /* optional: prevent it from being taller than viewport */
+    overflow-y: auto;         /* scrollbar if content is too tall */
+}
+
+
