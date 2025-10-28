@@ -1,0 +1,52 @@
+#container{
+    color: aqua;
+    display: flex;
+    padding:0;
+    margin:0;
+}
+
+#homepage{
+    background-color: #4F378B;
+    border-radius: 20px 20px 0px 0px;
+
+    margin-top: 25%;
+    margin-left:100px;
+
+    padding: 30px;
+    
+    height: 100vh;
+    width: 100%;
+}
+
+
+#artistsScroll{
+    padding: 50px 20px;
+    color: yellow;
+}
+
+#venuesScroll{
+    color: pink;
+    padding: 50px 20px;
+}
+
+#navbar{
+    background-color: blue;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: blue;
+  width: 100px;
+  height: 100%; 
+  position: fixed; 
+  overflow: auto; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+li{
+    padding:20px;
+}
