@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="artists.css">
+    <title>Sabrina Carpenter – Concert Tours</title>
+</head>
+
+<body>
+<!-- Sidebar -->
+<div class="sidebar"></div>
+
+<!-- HERO SECTION -->
+<header class="hero" style="background: url('artistImages/sabrina.jpg') center center / cover no-repeat;">
+    <div class="hero-content">
+        <h1 class="hero-title">Sabrina Carpenter Concerts</h1>
+        <div class="hero-tours">
+            <p><strong>Past Tours:</strong></p>
+            <ul>
+                <li>2016 — <em>Evolution Tour</em></li>
+                <li>2017 — <em>De-Tour</em></li>
+                <li>2019 — <em>Singular Tour</em></li>
+                <li>2022 — <em>Emails I Can’t Send Tour</em></li>
+                <li>2024 — <a href="#shortnsweet" class="scroll-link"><em>Short n’ Sweet Tour</em></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="purple-section" id="shortnsweet">
+    <div class="tour-layout">
+        <!-- Poster -->
+        <div class="poster">
+            <img src="artistImages/sabrina.jpg" alt="Sabrina Carpenter Short n’ Sweet Tour Poster">
+        </div>
+
+        <!-- Info -->
+        <div class="tour-info">
+            <h2>Short n’ Sweet Tour</h2>
+            <p>The <strong>Short n’ Sweet Tour</strong> is Sabrina Carpenter’s 2024 headline tour supporting her upcoming album. The tour brings Sabrina’s pop magic to stages across North America with a glamorous aesthetic and viral chart-topping energy.</p>
+
+            <ul>
+                <li>Sep 23 — Columbus, OH</li>
+                <li>Sep 25 — Toronto, ON</li>
+                <li>Sep 30 — Boston, MA</li>
+                <li>Oct 04 — New York City, NY</li>
+                <li>Oct 09 — Atlanta, GA</li>
+                <li>Oct 12 — Miami, FL</li>
+                <li>Oct 16 — Chicago, IL</li>
+                <li>Oct 22 — Houston, TX</li>
+                <li>Oct 28 — Dallas, TX</li>
+                <li>Nov 02 — Los Angeles, CA</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TICKET SLIDESHOW -->
+    <section class="tickets" id="sabrinatickets">
+        <h3>TICKET PREVIEW</h3>
+        <div class="ticket-slideshow">
+            <div class="mySlide fade">
+                <img src="artistImages/sabrinatixfront.jpg" alt="Sabrina Carpenter ticket front">
+            </div>
+            <div class="mySlide fade">
+                <img src="artistImages/sabrinatixback.jpg" alt="Sabrina Carpenter ticket back">
+            </div>
+            <a class="prev" onclick="plus('sabrinatickets', -1)">&#10094;</a>
+            <a class="next" onclick="plus('sabrinatickets',  1)">&#10095;</a>
+        </div>
+
+        <div class="dots">
+            <span class="dot" onclick="go('sabrinatickets', 1)"></span>
+            <span class="dot" onclick="go('sabrinatickets', 2)"></span>
+        </div>
+    </section>
+
+    <!-- IMAGE DIVIDER (transitional background) -->
+    <section class="image-divider" style="background-image: url('artistImages/sabrinadivider.jpg');"></section>
+</main>
+
+<!-- Reuse your slideshow JS -->
+<script src="scripts/slides.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        show('sabrinatickets', 1);
+    });
+</script>
+</body>
+</html>

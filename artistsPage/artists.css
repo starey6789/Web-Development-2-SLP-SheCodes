@@ -1,118 +1,202 @@
-.backgroundTopBox {
-    background-color: #383970; 
-    width: 90%;
-    height: 300px; /*300px;*/
-    margin: 50px 0px 50px 100px;
-    right: 0;
-    border-radius: 10px;
-    padding: 20px;
-    color: white; /* text color */
+:root {
+    --sidebar-w: 90px;     /* sidebar width */
+    --gutter: 40px;        /* offset used for hero text */
+    --content-x: 60px;     /* standard horizontal padding inside purple sections */
+}
+
+/* ========== Base ========== */
+html, body { margin: 0; padding: 0; font-family: Georgia, serif; }
+html { scroll-behavior: smooth; }   /* smooth anchor scrolling */
+body { background: #55368c; color: #fff; margin-left: var(--sidebar-w); }
+
+/* ========== Sidebar ========== */
+.sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w); height: 100%;
+    background: rgba(26,13,102,.9);
+    z-index: 10;
+}
+
+/* ========== HERO (full viewport) ========== */
+/* HERO: fills first screen and fades into the purple section */
+.hero{
+    position: relative;
+    height: 100vh;
+    background: url('artistImages/bg.jpg') center center / cover no-repeat;
+    background-attachment: scroll; /* it should scroll with the page */
+}
+
+/* Soft fade at the very bottom of the hero into the purple below */
+.hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px;      /* -1px helps avoid a hairline gap */
+    height:140px;                      /* tweak for a longer/shorter fade */
+    pointer-events:none;
+    background: linear-gradient(
+            to bottom,
+            rgba(203,179,255,0) 0%,
+            #cbb3ff 85%,                      /* your pastel purple */
+            #cbb3ff 100%
+    );
+}
+
+
+/* Title + tour list */
+.hero-content {
+    position: absolute;
+    top: 40px;
+    left: calc(var(--sidebar-w) + var(--gutter));
+}
+
+.hero-title {
+    margin: 0 0 16px 0;
+    font-size: clamp(42px, 6vw, 96px);
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,.6);
+}
+
+.hero-tours { font-size: 22px; line-height: 1.6; }
+.hero-tours ul { list-style: none; margin: 6px 0 0 0; padding: 0; }
+.hero-tours li { margin: 4px 0; }
+
+/* Link style in hero list */
+.scroll-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.scroll-link:hover {
+    color: #cbb3ff;
+    text-decoration: underline;
+}
+
+/* ========== Purple content section (below hero) ========== */
+/* NOTE: keep a single definition */
+.purple-section {
+    background: #cbb3ff;         /* pastel purple */
+    color: #1a1036;
+    padding: 80px var(--content-x);
+    min-height: 120vh;
+    border-top-left-radius: 40px;
+}
+
+/* Layout: poster + text */
+.tour-layout {
     display: flex;
     align-items: flex-start;
-
+    justify-content: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;              /* stacks nicely on small screens */
 }
 
+/* Poster */
+.poster img {
+    width: 420px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
 
-.backgroundTopBox img.artist-img {
-    width: 300px;       /* image size */
+/* Tour info text */
+.tour-info { flex: 1; max-width: 600px; }
+.tour-info h2 { font-size: 42px; margin: 0 0 16px 0; }
+.tour-info p  { font-size: 18px; margin-bottom: 20px; }
+.tour-info ul { list-style: none; padding: 0; font-size: 18px; line-height: 1.6; }
+.tour-info li::before { content: "🎤 "; }
+
+/* ========== Ticket Slideshow ========== */
+.tickets {
+    margin-top: 50px;
+    color: #1a1036;
+    text-align: center;           /* center the heading and slideshow */
+}
+.tickets h3 {
+    color: #1a1036;
+    font-size: 32px;
+    margin: 0 0 16px 0;
+}
+
+/* Slideshow wrapper (centered + responsive) */
+.ticket-slideshow {
+    position: relative;
+    margin: 0 auto;               /* center horizontally */
+    max-width: 800px;             /* make larger/smaller here */
+    width: 90%;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    background: #111;
+}
+
+/* Slides */
+.mySlide { display: none; }
+.mySlide img {
+    width: 100%;
     height: auto;
-    border-radius: 10px; /* rounded corners */
-    flex-shrink: 0;     /* prevent shrinking when text wraps */
+    object-fit: contain;          /* show full ticket (no cropping) */
+    display: block;
+    background: #111;
 }
 
-
-.artist-top-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-left: 20px;
-}
-
-.artist-top-text p{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-left: 20px;
-}
-
-.container {
-    display: flex;             /* puts children in a row */
-    gap: 20px;        
-    margin: 0 0 50px 100px;       /* space between boxes */
-     /* optional: spreads them out */
-}
-
-.artist-info-setlist {
-    background-color: #383970; 
-    border-style: solid; /* A border style is required for the color to be visible */
-    border-width: 5px;
-    border-color: #ef6292; 
-    margin: 8px 0 8px 0; /* less vertical space */
-    padding: 5px 20px;       /* smaller internal spacing */
-    border-radius: 10px;
-    width: auto;
-    height: 400px;
+/* Controls */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    padding: 10px 14px;
     color: white;
-    font-size: 20px;
-    font-family: Georgia, serif;
-    text-align: center;
-    overflow: auto;
+    font-weight: bold;
+    font-size: 22px;
+    user-select: none;
+    background: rgba(0,0,0,.35);
+    border-radius: 8px;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+.prev:hover, .next:hover { background: rgba(0,0,0,.55); }
+
+/* Dots */
+.dots { text-align: center; margin-top: 10px; }
+.dot {
+    cursor: pointer;
+    height: 12px; width: 12px;
+    margin: 0 6px;
+    background-color: rgba(0,0,0,.25);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+.active, .dot:hover { background-color: rgba(0,0,0,.5); }
+
+/* Fade animation */
+.fade { animation: fadeIn 0.6s ease; }
+@keyframes fadeIn { from {opacity: .4} to {opacity: 1} }
+
+/* ========== Full-bleed Image Divider (fills like hero) ========== */
+/* Breaks out of the purple section’s side padding so it spans edge-to-edge */
+.image-divider {
+    position: relative;
+    height: 100vh; /* full viewport height; change to 70vh for shorter strip */
+    background: url('artistImages/tlps.jpg') center center / cover no-repeat;
+    background-attachment: scroll;
+    background-color: #000; /* fallback */
+
+    /* Break out of .purple-section horizontal padding */
+    margin-left: calc(-1 * var(--content-x));
+    margin-right: calc(-1 * var(--content-x));
+    width: calc(100% + 2 * var(--content-x));
 }
 
-.artist-info-tour {
-    background-color: #383970; 
-    border-style: solid; /* A border style is required for the color to be visible */
-    border-width: 5px;
-    border-color: #6ac5fe;
-    margin: 8px 0 8px 0; /* less vertical space */
-    padding: 5px 20px;      /* smaller internal spacing */
-    border-radius: 10px;
-    width: 500px;
-    height: 400px;
-    color: white;
-    font-size: 20px;
-    font-family: Georgia, serif;
-    text-align: center;
-    overflow: auto;
-    
+/* Optional soft fades to blend with purple above/below */
+.image-divider::before {
+    content: "";
+    position: absolute; left: 0; right: 0; top: 0; height: 120px;
+    background: linear-gradient(to bottom, #cbb3ff, transparent);
 }
-
-
-.backgroundTopBox h1 {
-    margin: 0 0 10px 0; /* spacing below title */
-    font-size: 50px;
+.image-divider::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
+    background: linear-gradient(to top, #cbb3ff, transparent);
 }
-
-.backgroundTopBox p {
-    margin: 0;          /* remove default paragraph margin */
-    line-height: 1.4;   /* make text easier to read */
-    font-size: 25px;
-}
-
-
-.backgroundRightBox {
-    background-color: #383970; 
-    border-style: solid; /* A border style is required for the color to be visible */
-    border-width: 5px;
-    border-color: #FFEE8C; 
-    width: 500px;             /* fixed width for vertical box */
-    /* height: 340px; */      /* remove fixed height to allow flexibility */
-    border-radius: 10px;
-    padding: 10px;
-
-    text-align: center;
-    color: white;
-
-    /* remove these: */
-    /* position: absolute; */
-    /* bottom: 0; */
-
-    margin: 8px 0 8px 0;       /* spacing from previous content and center horizontally *       /* spacing from previous content and center horizontally */
-    max-height: 90vh;         /* optional: prevent it from being taller than viewport */
-    overflow-y: auto;         /* adds scrollbar if content exceeds box height */
-}
-
-
-
-
-

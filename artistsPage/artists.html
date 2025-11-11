@@ -1,111 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Style sheets connecting to this .html page-->
-    <link rel="stylesheet" href="../styles.css"> 
-    <link rel="stylesheet" href="artists.css"> 
-
-    <title>Artists/Venue Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="artists.css">
+    <title>Tate McRae Concerts</title>
 </head>
-
 <body>
-    <div class="backgroundTopBox">
-        <img src="artistImages/tatemcrae.jpg" alt="Tate McRae" img class = "artist-img">
-        <div  class="artist-top-text"> 
-            <h1> Tate McRae </h1>
-            <p>Tour: So Close To What</p>
-            <p>Genre: pop, alt pop, dance-pop, R&B</p>
-            <p>Popular songs: Greedy,You Broke Me First, Sports Car</p>
-            <p>Ticket Price range: $40 - $1,100 (depends on location and package)</p>
-            <p>Merch Price range: $45 - $200</p>
+<!-- Sidebar -->
+<div class="sidebar"></div>
+
+<!-- HERO (full-screen image with heading + tours inside) -->
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Tate McRae Concerts</h1>
+        <div class="hero-tours">
+            <p><strong>Past Tours:</strong></p>
+            <ul>
+                <li>2022 — <em>Too Young to Be Sad Tour</em></li>
+                <li>2024 — <a href="#thinklater" class="scroll-link"><em>Think Later World Tour</em></a></li>
+                <li>2025 — <a href="#misspossessive" class="scroll-link"><em>Miss Possessive Tour</em></a></li>
+            </ul>
         </div>
     </div>
-    <div class="container">
-        <div class="artist-info-setlist">
-            <p><strong>SetList:</strong></p>
-           <p>Act I:</p>
-           <p>1. Miss possessive</p>
-           <p>2. No Im not in love</p>
-           <p>3. 2 Hands</p>
-           <p>4. Guilty conscience <br><br> </p>
+</header>
 
-           <p>Act II:</p>
-           <p>5. Purple lace bra</p>
-           <p>6. Like I do</p>
-           <p>7. uh oh</p>
-           <p>8. Dear god</p>
-           <p>9. Siren sounds <br><br> </p>
-
-           <p>Act III (B-Stage / Mid):</p>
-           <p>10. Greenlight</p>
-           <p>11. Nostalgia</p>
-           <p>12. That way / Chaotic / One Day (medley)</p>
-           <p>13. You broke me first</p>
-           <p>14. Run for the hills <br><br> </p>
-
-           <p>Act IV / End of Main Set:</p>
-           <p>15. exes</p>
-           <p>16. bloodonmyhands</p>
-           <p>17. shes all i wanna be</p>
-           <p>18. Revolving door</p>
-           <p>19. Its OK Im OK <br><br> </p>
-
-           <p>Encore:</p>
-           <p>20. Sports car</p>
-           <p>21. greedy</p>
-
+<!-- Page below the image -->
+<main class="purple-section" id="misspossessive">
+    <div class="tour-layout">
+        <!-- Left side: the poster -->
+        <div class="poster">
+            <img src="artistImages/mpt.jpg" alt="Miss Possessive Tour Poster">
         </div>
-        <div class="artist-info-tour">
-           <p><strong>Tate McRae 2025 Tour Dates:</strong></p>
-           <p>08/05/25 – Vancouver, BC @ Rogers Arena</p>
-           <p>08/07/25 – Edmonton, AB @ Rogers Place</p>
-           <p>08/09/25 – Winnipeg, MB @ Canada Life Centre</p>
-           <p>08/13/25 – Saint Paul, MN @ Xcel Energy Center</p>
-           <p>08/15/25 – Chicago, IL @ United Center</p>
-           <p>08/16/25 – Detroit, MI @ Little Caesars Arena</p>
-           <p>08/19/25 – Toronto, ON @ Scotiabank Arena</p>
-           <p>08/22/25 – Ottawa, ON @ Canadian Tire Centre</p>
-           <p>08/24/25 – Montreal, QC @ Centre Bell</p>
-           <p>08/26/25 – Boston, MA @ TD Garden</p>
-           <p>08/31/25 – Baltimore, MD @ CFG Bank Arena</p>
-           <p>09/03/25 – New York, NY @ Madison Square Garden</p>
-           <p>09/06/25 – Philadelphia, PA @ Wells Fargo Center</p>
-           <p>09/09/25 – Atlanta, GA @ State Farm Arena</p>
-           <p>09/11/25 – Nashville, TN @ Bridgestone Arena</p>
-           <p>09/13/25 – Orlando, FL @ Kia Center</p>
-           <p>09/16/25 – Austin, TX @ Moody Center</p>
-           <p>09/18/25 – Dallas, TX @ American Airlines Center</p>
-           <p>09/20/25 – Denver, CO @ Ball Arena</p>
-           <p>09/24/25 – San Francisco, CA @ Chase Center</p>
-           <p>09/26/25 – Inglewood, CA @ Kia Forum</p>
-           <p>10/02/25 – Seattle, WA @ Climate Pledge Arena</p>
-           <p>10/03/25 – Seattle, WA @ Climate Pledge Arena</p>
-           <p>10/05/25 – Sacramento, CA @ Golden 1 Center</p>
-           <p>10/09/25 – Omaha, NE @ CHI Health Center</p>
-           <p>10/11/25 – St. Louis, MO @ Enterprise Center</p>
-           <p>10/13/25 – Detroit, MI @ Little Caesars Arena</p>
-           <p>10/15/25 – Pittsburgh, PA @ PPG Paints Arena</p>
-           <p>10/17/25 – Boston, MA @ TD Garden</p>
-           <p>10/18/25 – New York, NY @ Madison Square Garden Arena</p>
-           <p>10/21/25 – Chicago, IL @ United Center</p>
-           <p>10/22/25 – Grand Rapids, MI @ Van Andel Arena</p>
-           <p>10/24/25 – Charlotte, NC @ Spectrum Center</p>
-           <p>10/25/25 – Raleigh, NC @ Lenovo Arena</p>
-           <p>10/28/25 – Kansas City, MO @ T-Mobile Center</p>
-           <p>10/29/25 – Tulsa, OK @ BOK Center</p>
-           <p>10/31/25 – Austin, TX @ Moody Center</p>
-           <p>11/04/25 – Phoenix, AZ @ Footprint Center</p>
-           <p>11/05/25 – Phoenix, AZ @ Footprint Center</p>
-           <p>11/07/25 – Palm Desert, CA @ Acrisure Arena at Greater Palm Springs</p>
-           <p>11/08/25 – Inglewood, CA @ The Kia Forum </p>
+
+        <!-- Right side: your text -->
+        <div class="tour-info">
+            <h2>Miss Possessive Tour</h2>
+            <p>Here’s the full tour schedule and some details about Tate McRae’s 2025 world tour.</p>
+
+            <ul>
+                <li>March 18 — Mexico City, MX</li>
+                <li>March 22 — Buenos Aires, AR</li>
+                <li>March 23 — Santiago, CL</li>
+                <li>March 29 — São Paulo, BR</li>
+                <li>May 7 — Lisbon, PT</li>
+                <li>May 9 — Madrid, ES</li>
+                <li>May 14 — Antwerp, BE</li>
+                <li>June 13 — Bologna, IT</li>
+                <li>June 16 — Cologne, DE</li>
+                <li>August 4 — Vancouver, CA</li>
+                <li>September 3 — New York City, US</li>
+                <li>November 8 — Inglewood, US</li>
+            </ul>
         </div>
-    
-        <div class="backgroundRightBox">
-            <h1> See what people have to say! </h1>
+    </div>
+
+    <!-- Tickets preview slideshow (MISS POSSESSIVE) -->
+    <section class="tickets" id="tickets1">
+        <h3>TICKET PREVIEW</h3>
+        <div class="ticket-slideshow">
+            <div class="mySlide fade">
+                <img src="artistImages/fronttix.jpg" alt="Miss Possessive Tour ticket front">
+            </div>
+            <div class="mySlide fade">
+                <img src="artistImages/backtix.jpg" alt="Miss Possessive Tour ticket back">
+            </div>
+            <!-- controls -->
+            <a class="prev" aria-label="Previous slide" onclick="plus('tickets1', -1)">&#10094;</a>
+            <a class="next" aria-label="Next slide" onclick="plus('tickets1',  1)">&#10095;</a>
         </div>
-</div>
+        <!-- dots -->
+        <div class="dots" role="tablist">
+            <span class="dot" onclick="go('tickets1', 1)" aria-label="Slide 1"></span>
+            <span class="dot" onclick="go('tickets1', 2)" aria-label="Slide 2"></span>
+        </div>
+    </section>
+
+    <!-- Image divider section -->
+    <section class="image-divider"></section>
+
+    <!-- ===================== Think Later World Tour ===================== -->
+    <section class="purple-section" id="thinklater">
+        <div class="tour-layout">
+            <!-- Left: poster -->
+            <div class="poster">
+                <img src="artistImages/tlwt.jpg" alt="Think Later World Tour Poster">
+            </div>
+
+            <!-- Right: copy + dates -->
+            <div class="tour-info">
+                <h2>Think Later World Tour</h2>
+                <p>Highlights from the 2024 run. (You can edit/expand these.)</p>
+                <ul>
+                    <li>Apr 17 — Dublin, IE</li>
+                    <li>Apr 20 — London, UK</li>
+                    <li>Apr 25 — Berlin, DE</li>
+                    <li>May 01 — Milan, IT</li>
+                    <li>May 12 — Lisbon, PT</li>
+                    <li>Jul 30 — Maryland Heights, MO</li>
+                    <li>Aug 07 — Indianapolis, IN</li>
+                    <li>Aug 11 — Boston, MA</li>
+                    <li>Aug 14 — Washington, DC</li>
+                    <li>Aug 22 — Atlanta, GA</li>
+                    <li>Aug 28 — New York, NY</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tickets slideshow (THINK LATER) -->
+        <section class="tickets" id="tickets2">
+            <h3>TICKET PREVIEW</h3>
+            <div class="ticket-slideshow">
+                <div class="mySlide fade">
+                    <img src="artistImages/fronttl.jpg" alt="TLWT ticket front">
+                </div>
+                <div class="mySlide fade">
+                    <img src="artistImages/backtl.jpg" alt="TLWT ticket back">
+                </div>
+                <a class="prev" onclick="plus('tickets2', -1)">&#10094;</a>
+                <a class="next" onclick="plus('tickets2',  1)">&#10095;</a>
+            </div>
+            <div class="dots">
+                <span class="dot" onclick="go('tickets2', 1)"></span>
+                <span class="dot" onclick="go('tickets2', 2)"></span>
+            </div>
+        </section>
+    </section>
+</main>
+
+<!-- Scoped slideshow controller (works for multiple carousels) -->
+<script>
+    // per-slideshow state
+    const sliderState = {};
+
+    function show(id, n) {
+        const slides = document.querySelectorAll(`#${id} .mySlide`);
+        const dots   = document.querySelectorAll(`#${id} .dot`);
+        if (!slides.length) return;
+
+        if (!(id in sliderState)) sliderState[id] = 1;
+
+        // wrap
+        if (n > slides.length) sliderState[id] = 1;
+        else if (n < 1)        sliderState[id] = slides.length;
+        else                   sliderState[id] = n;
+
+        slides.forEach(s => s.style.display = "none");
+        dots.forEach(d => d.classList.remove("active"));
+
+        slides[sliderState[id] - 1].style.display = "block";
+        if (dots[sliderState[id] - 1]) dots[sliderState[id] - 1].classList.add("active");
+    }
+
+    function plus(id, delta) { show(id, (sliderState[id] || 1) + delta); }
+    function go(id, n)       { show(id, n); }
+
+    // init both slideshows
+    document.addEventListener('DOMContentLoaded', () => {
+        show('tickets1', 1);
+        show('tickets2', 1);
+    });
+</script>
 </body>
 </html>
