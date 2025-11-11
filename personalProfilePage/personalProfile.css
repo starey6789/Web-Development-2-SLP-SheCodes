@@ -1,0 +1,145 @@
+/* base layout */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    color: #f2f3fa;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    
+    /* layout grid: header on top, aside + main below */
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "header header"
+        "aside main";
+    gap: 20px;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* map elements to grid */
+header {grid-area: header;}
+aside {grid-area: aside;}
+main {grid-area: main;}
+
+
+/* layout */
+header {
+    background-color: #2b2c67;
+    border: 1px solid #363781;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.profile-hedaer {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.profile-picture {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #35368a, #1b1c51);
+    border: 2px solid #a7b4ff;
+    display: grid;
+    place-items: center;
+    color: #c8ceff;
+    font-size: 12px;
+}
+
+.profile-info h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.bio { color: #c8ceff; margin-bottom: 8px; }
+.average-rating { margin-bottom: 8px; color: #ffffff; }
+
+.stats {
+    display: flex;
+    gap: 18px;
+    font-size: 14px;
+    color: #e0e2ff;
+}
+
+/* favorites */
+aside {
+    background-color: #23245e;
+    border: 1px solid #363781;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+aside section h2 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+aside ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #c8ceff;
+}
+
+aside p {
+    color: #c8ceff;
+    font-size: 14px;
+}
+
+/* reviews */
+main {
+    background-color: #23245e;
+    border: 1px solid #363781;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+main > h2 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.review {
+    background-color: #2b2c67;
+    border: 1px solid #3d3f8c;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 14px;
+}
+
+.review h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.review p {
+    margin: 6px 0;
+    color: #e0e2ff;
+}
+
+/* highlight ratings */
+.review strong {
+    color: #f7b801;
+}
+
+/* responsive */
+@media (max-width: 90px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "aside"
+            "main";
+    }
+}
