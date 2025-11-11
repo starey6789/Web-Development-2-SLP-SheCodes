@@ -1,52 +1,120 @@
-#container{
-    color: aqua;
-    display: flex;
-    padding:0;
-    margin:0;
-}
-
-#homepage{
-    background-color: #4F378B;
-    border-radius: 20px 20px 0px 0px;
-
-    margin-top: 25%;
-    margin-left:100px;
-
-    padding: 30px;
-    
-    height: 100vh;
-    width: 100%;
-}
-
-
-#artistsScroll{
-    padding: 50px 20px;
-    color: yellow;
-}
-
-#venuesScroll{
-    color: pink;
-    padding: 50px 20px;
-}
-
-#navbar{
-    background-color: blue;
-}
-
-ul {
-  list-style-type: none;
+/* GENERAL LAYOUT */
+body {
   margin: 0;
-  padding: 0;
-  background-color: blue;
-  width: 100px;
-  height: 100%; 
-  position: fixed; 
-  overflow: auto; 
+  font-family: Arial, sans-serif;
+  background-color: #2c1a64;
+  color: white;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 180px;
+  background-color: #1b0e44;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
 }
 
-li{
-    padding:20px;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+}
+
+.sidebar button {
+  background-color: #4f378b;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar button:hover {
+  background-color: #6a50b2;
+}
+
+/* MAIN CONTENT */
+.content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* HEADER IMAGE */
+.header img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 3px solid #6a50b2;
+}
+
+/* HOMEPAGE CONTENT */
+.homepage {
+  background-color: #4f378b;
+  border-radius: 20px 20px 0 0;
+  padding: 30px;
+  margin-top: -30px;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  color: aqua;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h3 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+/* SCROLL SECTIONS */
+.scrollmenu {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.scrollmenu::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollmenu::-webkit-scrollbar-thumb {
+  background-color: #6a50b2;
+  border-radius: 4px;
+}
+
+.card {
+  min-width: 120px;
+  height: 120px;
+  background-color: #3c2a73;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background-color: #6a50b2;
 }

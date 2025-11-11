@@ -4,32 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-        <!-- Style sheets connecting to this .html page-->
+    <!-- Style sheets connecting to this .html page-->
     <link rel="stylesheet" href="../styles.css"> 
-    <link rel="stylesheet" href="index.css"> 
-    
+    <link rel="stylesheet" href="index.css">
     <title>Home Page</title>
 </head>
-
 <body>
-    <div id="container">
-        <div id="navbar">
-            <ul> 
-                <li>add artist review</li>
-                <li>add venue review</li>
-            </ul>
-        </div>
-        
-        <div id="homepage">
-            <h2> HOME PAGE </h2>
-            <div class="title" id="artistsScroll">
-                <h3> Artists </h3>
-            </div>
-            <div class="title" id="venuesScroll">
-                <h3> Venues </h3>
-            </div>
-        </div>
-    </div>
+    <div class="container">
+        <!-- LEFT NAVIGATION -->
+        <nav class="sidebar">
+        <ul>
+            <li><button>Add Artist Review</button></li>
+            <li><button>Add Venue Review</button></li>
+        </ul>
+        </nav>
 
+        <!-- MAIN CONTENT -->
+        <main class="content">
+        <!-- HEADER IMAGE -->
+        <header class="header">
+            <img src="../header.jpg" alt="Header Image" />
+        </header>
+
+        <!-- HOME PAGE CONTENT -->
+        <section class="homepage">
+            <h2 class="title">Home Page</h2>
+
+            <div class="section">
+            <h3>Artists</h3>
+            <div class="scrollmenu">
+                <div class="card">Bob</div>
+                <div class="card">Anna</div>
+                <div class="card">Max</div>
+                <div class="card">Luna</div>
+                <div class="card">Kai</div>
+                <div class="card">Zoe</div>
+                <div class="card">Leo</div>
+            </div>
+            </div>
+
+            <div class="section">
+            <h3 style="color:pink">Venues</h3>
+            <div class="scrollmenu">
+                <div class="card">Venue 1</div>
+                <div class="card">Venue 2</div>
+                <div class="card">Venue 3</div>
+                <div class="card">Venue 4</div>
+            </div>
+            </div>
+        </section>
+        </main>
+    </div>
 </body>
 </html>
