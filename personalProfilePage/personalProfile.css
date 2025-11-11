@@ -1,0 +1,371 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: #5b3b9c;
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */ 
+.sidebar {
+  width: 80px;
+  background-color: #0b0844;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.sidebar li {
+  margin: 15px 0;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.sidebar img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  overflow:hidden;
+  position: relative
+}
+
+/* Profile Section */
+.profile-container {
+  position: fixed;
+  top: 0;
+  left:80px;
+    right: 0;
+    height: 140px;
+  background-color: #4c2b85;
+  padding: 20px 40px;
+  justify-content: space-between;
+  border-radius: 12px;
+  display: flex;
+  gap: 30px;
+  z-index: 10;
+  color: white;
+}
+
+/* Top row: profile info + now playing */
+.profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Profile info (left) */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profile-text h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.profile-text p {
+  margin-top: 6px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  max-width: 400px;
+}
+
+/* Now Playing (top right) */
+.now-playing {
+  text-align: center; 
+  margin-top: 0;     /* remove any existing top spacing */
+  position: relative;
+  top: -20px;          /* center everything horizontally */
+}
+
+.song {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;      /* center horizontally */
+  margin-top: 10px;
+  gap: 8px;                 /* space between play button and song title */
+}
+
+.play-button {
+  width: 45px;
+  height: 45px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+/* Second row: Stars + Stats */
+.profile-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-stars {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars span {
+  font-size: 1.6rem;
+  color: #ffd700;
+}
+
+/* Stats inline with stars */
+.profile-stats {
+  display: flex;
+  align-items: center;
+}
+
+.stats {
+  display: flex;
+  gap: 40px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Third Box: Artist/Venues/Genres/Songs */
+/* Favorites Section (Artists, Venues, Songs, Genres) */
+.favorites-section {
+  position: fixed;
+  top: 160px;
+  left: 100px;
+  width: 250px;       /* shrink to fit content */
+  background-color:  #5b3b9c;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  overflow-y: auto;
+  max-height: calc(100vh - 180px);
+  scrollbar-width: thin;
+  scrollbar-color: #b89cff #4e2c87;
+}
+
+
+.favorites-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 10px;
+}
+
+
+.fav-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: #5b3b9c;
+  font-size: 0.9rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+
+
+.top-artists {
+  color: #00d9ff;
+}
+
+.top-venues {
+  color: #ff4da6;
+}
+
+.fav-songs {
+  color: #00ff66;
+}
+
+.top-genres {
+  color: #ffd000;
+}
+
+
+/* Scrollbar styling (for Chrome/Safari/Edge) */
+.posts-container::-webkit-scrollbar {
+  width: 8px;
+}
+.posts-container::-webkit-scrollbar-track {
+  background: #4e2c87;
+}
+.posts-container::-webkit-scrollbar-thumb {
+  background-color: #5b3b9c;
+  border-radius: 10px;
+}
+
+/* Artist/Venue grids */
+.artist-grid,
+.venue-grid {
+  display: flex;
+  gap: 8px;
+}
+
+.artist-grid img,
+.venue-grid img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #6c4dc0;
+}
+
+/* Favorite songs */
+.songs-grid {
+  display: flex;
+  gap: 6px;
+  font-size: 1.5rem;
+}
+
+/* Top genres text */
+.genres-list {
+  font-size: 1rem;
+  color: #f3f3f3;
+  text-align: center;
+}
+
+.posts-container {
+  position: absolute;
+  top: 160px;
+  left: 370px;
+  right: 20px;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #5b3b9c;
+  border-radius: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #b89cff #4e2c87;
+}
+
+/* Scrollbar styling (for Chrome/Safari/Edge) */
+.posts-container::-webkit-scrollbar {
+  width: 8px;
+}
+.posts-container::-webkit-scrollbar-track {
+  background: #4e2c87;
+}
+.posts-container::-webkit-scrollbar-thumb {
+  background-color: #5b3b9c;
+  border-radius: 10px;
+}
+
+/* Title above post list */
+.posts-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+/* Post card layout */
+.post {
+  background-color: #f1eefc;
+  color: #222;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.artist-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.post-header-text h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #2d145a;
+}
+
+.venue {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.location-icon {
+  font-size: 1rem;
+  margin-right: 4px;
+}
+
+/* Ratings (Artist + Venue side-by-side) */
+.rating-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.artist-rating,
+.venue-rating {
+  width: 48%;
+  background-color: #f8f6ff;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.rating-section strong {
+  font-size: 1.1rem;
+  color: #2d145a;
+}
+
+.notes {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Review text */
+.post-body {
+  margin: 15px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Bottom image */
+.post-image {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-top: 10px;
+}
