@@ -9,6 +9,11 @@
 </head>
 
 <body>
+
+    <div class="artist-switch">
+        <a id="switch-artist" href="#">&#8594; Next Artist</a>
+    </div>
+
 <!-- Sidebar -->
 <div class="sidebar"></div>
 
@@ -215,6 +220,32 @@
             <span class="dot" onclick="go('tickets-singular', 2)"></span>
         </div>
     </section>
+</section>
+
+<!-- ===================== Footer Comment Section ===================== -->
+<footer class="comment-footer">
+  <!-- Add Comment Button -->
+  <button id="addCommentBtn">+ Add Comment</button>
+
+  <!-- Comment Form -->
+  <form id="commentForm" style="display: none; flex-direction: column; gap: 10px; margin-top: 10px;">
+    <textarea id="commentText" rows="3" placeholder="Write your comment..."></textarea>
+
+    <!-- Interactive Star Rating -->
+    <div class="stars" id="starContainer">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
+    </div>
+
+    <button type="button" id="submitComment">Post</button>
+  </form>
+
+  <!-- Comments List -->
+  <div id="commentsList"></div>
+</footer>
 
 
 <!-- Inline slideshow JS (no external file needed) -->
@@ -251,6 +282,117 @@
         show('tickets-eics', 1);      // Emails I Can’t Send
         show('tickets-singular', 1);  // Singular
     });
+</script>
+
+<!-- Comment Section JS with localStorage and delete -->
+
+
+<script src="scripts/artistSwitch.js"></script>
+<script>
+const addCommentBtn = document.getElementById("addCommentBtn");
+const commentForm = document.getElementById("commentForm");
+const submitComment = document.getElementById("submitComment");
+const commentsList = document.getElementById("commentsList");
+const stars = document.querySelectorAll(".star");
+let selectedRating = 0;
+
+// Determine current artist based on the page filename
+const currentArtist = window.location.pathname.split("/").pop().replace('.html','');
+const storageKey = `comments_${currentArtist}`;
+
+// Load saved comments for this artist
+document.addEventListener("DOMContentLoaded", () => {
+  const savedComments = JSON.parse(localStorage.getItem(storageKey) || "[]");
+  savedComments.forEach(c => addCommentToDOM(c.text, c.rating));
+});
+
+// Toggle comment form
+addCommentBtn.addEventListener("click", () => {
+  commentForm.style.display = commentForm.style.display === "none" ? "flex" : "none";
+});
+
+// Star hover & click
+stars.forEach((star, index) => {
+  star.addEventListener("mouseover", () => {
+    stars.forEach((s, i) => s.classList.toggle("hovered", i <= index));
+  });
+
+  star.addEventListener("mouseout", () => {
+    stars.forEach((s, i) => {
+      s.classList.remove("hovered");
+      if (i < selectedRating) s.classList.add("selected");
+    });
+  });
+
+  star.addEventListener("click", () => {
+    selectedRating = index + 1;
+    stars.forEach((s, i) => s.classList.toggle("selected", i < selectedRating));
+  });
+});
+
+// Submit comment
+submitComment.addEventListener("click", () => {
+  const text = document.getElementById("commentText").value.trim();
+
+  if (!text || selectedRating === 0) {
+    alert("Please write a comment and select a rating!");
+    return;
+  }
+
+  addCommentToDOM(text, selectedRating);
+  saveComment(text, selectedRating);
+
+  // Reset form
+  document.getElementById("commentText").value = "";
+  selectedRating = 0;
+  stars.forEach(s => s.classList.remove("selected"));
+  commentForm.style.display = "none";
+});
+
+// Add comment to DOM
+function addCommentToDOM(text, rating) {
+  const comment = document.createElement("div");
+  comment.className = "comment";
+
+  let starsDisplay = "";
+  for (let i = 0; i < rating; i++) starsDisplay += "★";
+  for (let i = rating; i < 5; i++) starsDisplay += "☆";
+
+  comment.innerHTML = `
+    <div class="comment-content">
+      <span class="comment-text">${text}</span>
+      <span class="comment-stars">${starsDisplay}</span>
+    </div>
+    <button class="delete-comment">🗑️</button>
+  `;
+
+  commentsList.appendChild(comment);
+
+  // Delete functionality
+  comment.querySelector(".delete-comment").addEventListener("click", () => {
+    comment.remove();
+    updateLocalStorage();
+  });
+}
+
+// Save comment to artist-specific localStorage
+function saveComment(text, rating) {
+  const comments = JSON.parse(localStorage.getItem(storageKey) || "[]");
+  comments.push({ text, rating });
+  localStorage.setItem(storageKey, JSON.stringify(comments));
+}
+
+// Update localStorage after deletion
+function updateLocalStorage() {
+  const comments = [];
+  document.querySelectorAll("#commentsList .comment").forEach(c => {
+    const text = c.querySelector(".comment-text").textContent;
+    const starsText = c.querySelector(".comment-stars").textContent;
+    const rating = starsText.replace(/☆/g, "").length;
+    comments.push({ text, rating });
+  });
+  localStorage.setItem(storageKey, JSON.stringify(comments));
+}
 </script>
 
 </body>

@@ -8,6 +8,11 @@
     <title>Tate McRae Concerts</title>
 </head>
 <body>
+
+    <div class="artist-switch">
+        <a id="switch-artist" href="#">&#8594; Next Artist</a>
+    </div>
+
 <!-- Sidebar -->
 <div class="sidebar"></div>
 
@@ -38,21 +43,50 @@
         <div class="tour-info">
             <h2>Miss Possessive Tour</h2>
             <p>Here’s the full tour schedule and some details about Tate McRae’s 2025 world tour.</p>
-
             <ul>
-                <li>March 18 — Mexico City, MX</li>
-                <li>March 22 — Buenos Aires, AR</li>
-                <li>March 23 — Santiago, CL</li>
-                <li>March 29 — São Paulo, BR</li>
-                <li>May 7 — Lisbon, PT</li>
-                <li>May 9 — Madrid, ES</li>
-                <li>May 14 — Antwerp, BE</li>
-                <li>June 13 — Bologna, IT</li>
-                <li>June 16 — Cologne, DE</li>
-                <li>August 4 — Vancouver, CA</li>
-                <li>September 3 — New York City, US</li>
-                <li>November 8 — Inglewood, US</li>
+              <li>08/05/25 – Vancouver, BC @ Rogers Arena</li>
+              <li>08/07/25 – Edmonton, AB @ Rogers Place</li>
+              <li>08/09/25 – Winnipeg, MB @ Canada Life Centre</li>
+              <li>08/13/25 – Saint Paul, MN @ Xcel Energy Center</li>
+              <li>08/15/25 – Chicago, IL @ United Center</li>
+              <li>08/16/25 – Detroit, MI @ Little Caesars Arena</li>
+              <li>08/19/25 – Toronto, ON @ Scotiabank Arena</li>
+              <li>08/22/25 – Ottawa, ON @ Canadian Tire Centre</li>
+              <li>08/24/25 – Montreal, QC @ Centre Bell</li>
+              <li>08/26/25 – Boston, MA @ TD Garden</li>
+              <li>08/31/25 – Baltimore, MD @ CFG Bank Arena</li>
+              <li>09/03/25 – New York, NY @ Madison Square Garden</li>
+              <li>09/06/25 – Philadelphia, PA @ Wells Fargo Center</li>
+              <li>09/09/25 – Atlanta, GA @ State Farm Arena</li>
+              <li>09/11/25 – Nashville, TN @ Bridgestone Arena</li>
+              <li>09/13/25 – Orlando, FL @ Kia Center</li>
+              <li>09/16/25 – Austin, TX @ Moody Center</li>
+              <li>09/18/25 – Dallas, TX @ American Airlines Center</li>
+              <li>09/20/25 – Denver, CO @ Ball Arena</li>
+              <li>09/24/25 – San Francisco, CA @ Chase Center</li>
+              <li>09/26/25 – Inglewood, CA @ Kia Forum</li>
+              <li>10/02/25 – Seattle, WA @ Climate Pledge Arena</li>
+              <li>10/03/25 – Seattle, WA @ Climate Pledge Arena</li>
+              <li>10/05/25 – Sacramento, CA @ Golden 1 Center</li>
+              <li>10/09/25 – Omaha, NE @ CHI Health Center</li>
+              <li>10/11/25 – St. Louis, MO @ Enterprise Center</li>
+              <li>10/13/25 – Detroit, MI @ Little Caesars Arena</li>
+              <li>10/15/25 – Pittsburgh, PA @ PPG Paints Arena</li>
+              <li>10/17/25 – Boston, MA @ TD Garden</li>
+              <li>10/18/25 – New York, NY @ Madison Square Garden Arena</li>
+              <li>10/21/25 – Chicago, IL @ United Center</li>
+              <li>10/22/25 – Grand Rapids, MI @ Van Andel Arena</li>
+              <li>10/24/25 – Charlotte, NC @ Spectrum Center</li>
+              <li>10/25/25 – Raleigh, NC @ Lenovo Arena</li>
+              <li>10/28/25 – Kansas City, MO @ T-Mobile Center</li>
+              <li>10/29/25 – Tulsa, OK @ BOK Center</li>
+              <li>10/31/25 – Austin, TX @ Moody Center</li>
+              <li>11/04/25 – Phoenix, AZ @ Footprint Center</li>
+              <li>11/05/25 – Phoenix, AZ @ Footprint Center</li>
+              <li>11/07/25 – Palm Desert, CA @ Acrisure Arena at Greater Palm Springs</li>
+              <li>11/08/25 – Inglewood, CA @ The Kia Forum</li>
             </ul>
+
         </div>
     </div>
 
@@ -189,60 +223,115 @@
     });
 </script>
 
+<!-- Comment Section JS with localStorage and delete -->
 <script>
-  const addCommentBtn = document.getElementById("addCommentBtn");
-  const commentForm = document.getElementById("commentForm");
-  const submitComment = document.getElementById("submitComment");
-  const commentsList = document.getElementById("commentsList");
-  const stars = document.querySelectorAll(".star");
-  let selectedRating = 0;
+const addCommentBtn = document.getElementById("addCommentBtn");
+const commentForm = document.getElementById("commentForm");
+const submitComment = document.getElementById("submitComment");
+const commentsList = document.getElementById("commentsList");
+const stars = document.querySelectorAll(".star");
+let selectedRating = 0;
 
-  // Toggle comment form
-  addCommentBtn.addEventListener("click", () => {
-    commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
+// Determine current artist based on the page filename
+const currentArtist = window.location.pathname.split("/").pop().replace('.html','');
+const storageKey = `comments_${currentArtist}`;
+
+// Load saved comments for this artist
+document.addEventListener("DOMContentLoaded", () => {
+  const savedComments = JSON.parse(localStorage.getItem(storageKey) || "[]");
+  savedComments.forEach(c => addCommentToDOM(c.text, c.rating));
+});
+
+// Toggle comment form
+addCommentBtn.addEventListener("click", () => {
+  commentForm.style.display = commentForm.style.display === "none" ? "flex" : "none";
+});
+
+// Star hover & click
+stars.forEach((star, index) => {
+  star.addEventListener("mouseover", () => {
+    stars.forEach((s, i) => s.classList.toggle("hovered", i <= index));
   });
 
-  // Hover & select for stars
-  stars.forEach((star, index) => {
-    star.addEventListener("mouseover", () => {
-      stars.forEach((s, i) => s.classList.toggle("hovered", i <= index));
-    });
-
-    star.addEventListener("mouseout", () => {
-      stars.forEach((s, i) => {
-        s.classList.remove("hovered");
-        if (i < selectedRating) s.classList.add("selected");
-      });
-    });
-
-    star.addEventListener("click", () => {
-      selectedRating = index + 1;
-      stars.forEach((s, i) => s.classList.toggle("selected", i < selectedRating));
+  star.addEventListener("mouseout", () => {
+    stars.forEach((s, i) => {
+      s.classList.remove("hovered");
+      if (i < selectedRating) s.classList.add("selected");
     });
   });
 
-  // Submit comment
-  submitComment.addEventListener("click", () => {
-    const text = document.getElementById("commentText").value.trim();
-
-    if (!text || selectedRating === 0) {
-      alert("Please write a comment and select a rating!");
-      return;
-    }
-    // Generate stars
-    let starsDisplay = "";
-    for (let i = 0; i < selectedRating; i++) starsDisplay += "★";
-    for (let i = selectedRating; i < 5; i++) starsDisplay += "☆"; // optional: empty stars
-
-    const comment = document.createElement("div");
-    comment.className = "comment";
-    comment.innerHTML = `<p>${text}</p><p>${starsDisplay}</p>`;
-    commentsList.appendChild(comment);
-
-    // Reset form
-    document.getElementById("commentText").value = "";
-    selectedRating = 0;
-    stars.forEach(s => s.classList.remove("selected"));
-    commentForm.style.display = "none";
+  star.addEventListener("click", () => {
+    selectedRating = index + 1;
+    stars.forEach((s, i) => s.classList.toggle("selected", i < selectedRating));
   });
+});
+
+// Submit comment
+submitComment.addEventListener("click", () => {
+  const text = document.getElementById("commentText").value.trim();
+
+  if (!text || selectedRating === 0) {
+    alert("Please write a comment and select a rating!");
+    return;
+  }
+
+  addCommentToDOM(text, selectedRating);
+  saveComment(text, selectedRating);
+
+  // Reset form
+  document.getElementById("commentText").value = "";
+  selectedRating = 0;
+  stars.forEach(s => s.classList.remove("selected"));
+  commentForm.style.display = "none";
+});
+
+// Add comment to DOM
+function addCommentToDOM(text, rating) {
+  const comment = document.createElement("div");
+  comment.className = "comment";
+
+  let starsDisplay = "";
+  for (let i = 0; i < rating; i++) starsDisplay += "★";
+  for (let i = rating; i < 5; i++) starsDisplay += "☆";
+
+  comment.innerHTML = `
+    <div class="comment-content">
+      <span class="comment-text">${text}</span>
+      <span class="comment-stars">${starsDisplay}</span>
+    </div>
+    <button class="delete-comment">🗑️</button>
+  `;
+
+  commentsList.appendChild(comment);
+
+  // Delete functionality
+  comment.querySelector(".delete-comment").addEventListener("click", () => {
+    comment.remove();
+    updateLocalStorage();
+  });
+}
+
+// Save comment to artist-specific localStorage
+function saveComment(text, rating) {
+  const comments = JSON.parse(localStorage.getItem(storageKey) || "[]");
+  comments.push({ text, rating });
+  localStorage.setItem(storageKey, JSON.stringify(comments));
+}
+
+// Update localStorage after deletion
+function updateLocalStorage() {
+  const comments = [];
+  document.querySelectorAll("#commentsList .comment").forEach(c => {
+    const text = c.querySelector(".comment-text").textContent;
+    const starsText = c.querySelector(".comment-stars").textContent;
+    const rating = starsText.replace(/☆/g, "").length;
+    comments.push({ text, rating });
+  });
+  localStorage.setItem(storageKey, JSON.stringify(comments));
+}
 </script>
+
+
+<script src="scripts/artistSwitch.js"></script>
+</body>
+</html>
