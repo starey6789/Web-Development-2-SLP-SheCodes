@@ -1,0 +1,267 @@
+:root {
+    --sidebar-w: 90px;     /* sidebar width */
+    --gutter: 40px;        /* offset used for hero text */
+    --content-x: 60px;     /* standard horizontal padding inside purple sections */
+}
+
+/* ========== Base ========== */
+html, body { margin: 0; padding: 0; font-family: Georgia, serif; }
+html { scroll-behavior: smooth; }   /* smooth anchor scrolling */
+body { background: #55368c; color: #fff; margin-left: var(--sidebar-w); }
+
+/* ========== Sidebar ========== */
+.sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w); height: 100%;
+    background: rgba(26,13,102,.9);
+    z-index: 10;
+}
+
+
+/* Hero Layout */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    gap: 40px;
+}
+
+/* Text Section */
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: clamp(100px, 6vw, 72px);
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    color: #c1fbff;
+}
+
+.hero-text p {
+    font-size: clamp(30px, 2vw, 24px);
+    margin: 0;
+    color: #ffe3f2;
+    line-height: 1.4;
+}
+
+/* Slideshow container */
+.hero-slideshow {
+    position: relative;
+    max-width: 600px;   /* narrower to emphasize vertical layout */
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Slides */
+.slide { display: none; }
+
+.slide img {
+    width: 100%;
+    height: 800px;          /* taller for vertical orientation */
+    object-fit: cover;      /* fills the container, may crop slightly */
+    border-radius: 18px;
+}
+
+/* Arrows at top */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    padding: 8px 12px;
+    font-size: 24px;
+    color: white;
+    background: rgba(0,0,0,0.35);
+    border-radius: 8px;
+    user-select: none;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.55);
+}
+
+/* Fade animation */
+.fade { animation: fadeIn 0.6s ease; }
+@keyframes fadeIn { from {opacity: .4} to {opacity: 1} }
+
+/* Button container */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Buttons */
+.hero-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.venue-btn {
+    padding: 12px 20px;
+    background: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.venue-btn:hover {
+    background: #333;
+}
+
+/* Comment Section */
+.comment-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+}
+
+.comment-header {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fefc91;
+}
+
+#commentInput {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+#addCommentBtn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #c1fbff;
+    color: #1a1036;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#addCommentBtn:hover {
+    background: #9ae3f5;
+}
+
+.comment-box {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.comment button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+
+
+/* Empty comment display box */
+.comment-box {
+    min-height: 150px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 20px;
+}
+
+/* Rating section layout */
+.ratings-section {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.ratings-section h2{
+    color: #fe96c7;
+    font-size: 50px;
+}
+
+.rating-category {
+    background: rgba(255,255,255,0.05);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+
+/* Interactive stars (user rating) */
+.stars span {
+    font-size: 28px;
+    cursor: pointer;
+    color: #ddd;
+    padding: 2px;
+    transition: 0.2s;
+}
+
+.stars span.active {
+    color: gold;
+}
+
+/* Average stars with half-star support */
+.avg-stars {
+    display: inline-block;
+    position: relative;
+}
+
+.avg-stars span {
+    position: relative;
+    display: inline-block;
+    font-size: 28px;
+    color: #ddd; /* empty star color */
+    overflow: hidden;
+}
+
+/* The filled portion for half/full stars */
+.avg-stars span::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%; /* this will be set dynamically via JS */
+    overflow: hidden;
+    color: gold;
+}
+
+/* Add rating button */
+.add-rating-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #c1fbff;
+    color: #1a1036;
+    font-weight: bold;
+}
+
+.add-rating-btn:hover {
+    background: #9ae3f5;
+}
