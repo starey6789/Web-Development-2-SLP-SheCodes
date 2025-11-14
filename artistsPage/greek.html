@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="greek.css">
+    <title>Greek Theater</title>
+</head>
+
+<body>
+     <!-- Sidebar -->
+     <div class="sidebar"></div>
+
+    <section class="hero">
+        <!-- Left Column: Text -->
+        <div class="hero-text">
+            <h1>The Greek Theatre</h1>
+            <p>A historic outdoor venue in Los Angeles known for its beautiful setting and unforgettable live performances.</p>
+
+            <!-- Buttons added below text -->
+            <div class="hero-buttons">
+                <a href="https://www.lagreektheatre.com/" target="_blank" class="venue-btn">Official Website</a>
+                <a href="https://maps.app.goo.gl/h8XW9uJ7zqJvSx4c8" target="_blank" class="venue-btn">Google Maps</a>
+            </div>
+        </div>
+    
+        <!-- Right Column: Slideshow -->
+        <div class="hero-slideshow">
+            <div class="slide fade">
+                <img src="venueImages/gt2.jpg" alt="Greek Theater">
+            </div>
+            <div class="slide fade">
+                <img src="venueImages/gtcloseup.jpg" alt="">
+            </div>
+            <div class="slide fade">
+                <img src="venueImages/gtseats.jpg" alt="">
+            </div>
+            <div class="slide fade">
+                <img src="venueImages/gtstage.jpg" alt="">
+            </div>
+    
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+          let slides = document.querySelectorAll(".slide");
+          if (n > slides.length) { slideIndex = 1 }
+          if (n < 1) { slideIndex = slides.length }
+
+          slides.forEach(s => s.style.display = "none");
+          slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+    <!-- Rating Section -->
+    <section class="ratings-section">
+        <h2>Rate The Venue</h2>
+    
+        <div class="rating-category" data-category="parking">
+            <h3>Parking</h3>
+            <p>Average Rating: <span class="avg-stars"></span></p>
+            <button class="add-rating-btn">Add Rating</button>
+            <div class="user-stars-container" style="display: none;">
+                <p>Your Rating:</p>
+                <div class="stars user-stars"></div>
+            </div>
+        </div>
+    
+        <div class="rating-category" data-category="seating">
+            <h3>Seating</h3>
+            <p>Average Rating: <span class="avg-stars"></span></p>
+            <button class="add-rating-btn">Add Rating</button>
+            <div class="user-stars-container" style="display: none;">
+                <p>Your Rating:</p>
+                <div class="stars user-stars"></div>
+            </div>
+        </div>
+    
+        <div class="rating-category" data-category="sound">
+            <h3>Sound Quality</h3>
+            <p>Average Rating: <span class="avg-stars"></span></p>
+            <button class="add-rating-btn">Add Rating</button>
+            <div class="user-stars-container" style="display: none;">
+                <p>Your Rating:</p>
+                <div class="stars user-stars"></div>
+            </div>
+        </div>
+    
+        <div class="rating-category" data-category="weather">
+            <h3>Weather</h3>
+            <p>Average Rating: <span class="avg-stars"></span></p>
+            <button class="add-rating-btn">Add Rating</button>
+            <div class="user-stars-container" style="display: none;">
+                <p>Your Rating:</p>
+                <div class="stars user-stars"></div>
+            </div>
+        </div>
+    </section>
+    
+<!-- Comment Section Header -->
+<section class="comment-section">
+    <div class="comment-header">
+        Hear what others have to say about the venue!
+    </div>
+
+    <!-- Input for new comment -->
+    <textarea id="commentInput" placeholder="Write your comment..."></textarea>
+    <button id="addCommentBtn">Add Comment</button>
+
+    <!-- Comment box area -->
+    <div class="comment-box" id="commentsContainer">
+        <!-- Comments will appear here -->
+    </div>
+</section>
+
+<script>
+    // Use a single venueName variable for the page
+    const venueName = location.pathname.split("/").pop().replace(".html", "");
+
+    // --- RATINGS ---
+    const RATINGS_KEY_PREFIX = venueName + "_ratings_";
+
+    document.querySelectorAll(".rating-category").forEach(cat => {
+        let category = cat.dataset.category;
+        const avgContainer = cat.querySelector(".avg-stars");
+        const addBtn = cat.querySelector(".add-rating-btn");
+        const userStarsContainer = cat.querySelector(".user-stars-container");
+        const userStarsDiv = userStarsContainer.querySelector(".user-stars");
+
+        let savedRatings = JSON.parse(localStorage.getItem(RATINGS_KEY_PREFIX + category)) || [];
+
+        updateAverage(avgContainer, savedRatings);
+
+        addBtn.addEventListener("click", () => {
+            userStarsContainer.style.display = "block";
+            addBtn.style.display = "none";
+
+            if (userStarsDiv.childElementCount === 0) {
+                for (let i = 1; i <= 5; i++) {
+                    let star = document.createElement("span");
+                    star.innerHTML = "★";
+                    star.addEventListener("click", () => {
+                        savedRatings.push(i);
+                        localStorage.setItem(RATINGS_KEY_PREFIX + category, JSON.stringify(savedRatings));
+                        updateAverage(avgContainer, savedRatings);
+                        highlightStars(userStarsDiv, i);
+
+                        userStarsContainer.style.display = "none";
+                        addBtn.style.display = "inline-block";
+                    });
+                    userStarsDiv.appendChild(star);
+                }
+            }
+        });
+    });
+
+    function highlightStars(starsContainer, number) {
+        starsContainer.querySelectorAll("span").forEach((star, index) => {
+            star.classList.toggle("active", index < number);
+        });
+    }
+
+    function updateAverage(avgContainer, ratings) {
+        avgContainer.innerHTML = "";
+        let avg = ratings.length > 0 ? ratings.reduce((a,b) => a+b, 0)/ratings.length : 0;
+
+        for (let i = 1; i <= 5; i++) {
+            let star = document.createElement("span");
+            star.innerHTML = "★";
+            star.style.position = "relative";
+            star.style.display = "inline-block";
+            star.style.color = "#ddd";
+            star.style.fontSize = "28px";
+            star.style.width = "28px";
+            star.style.height = "28px";
+            star.style.lineHeight = "28px";
+            star.style.overflow = "hidden";
+
+            let fill = i <= avg ? 100 : (i-1 < avg ? (avg-(i-1))*100 : 0);
+
+            let before = document.createElement("span");
+            before.innerHTML = "★";
+            before.style.color = "gold";
+            before.style.position = "absolute";
+            before.style.left = "0";
+            before.style.top = "0";
+            before.style.width = fill + "%";
+            before.style.height = "100%";
+            before.style.overflow = "hidden";
+
+            star.appendChild(before);
+            avgContainer.appendChild(star);
+        }
+    }
+
+    // --- COMMENTS ---
+    const COMMENTS_KEY = venueName + "_comments"; // use the same venueName
+
+    const commentInput = document.getElementById("commentInput");
+    const addCommentBtn = document.getElementById("addCommentBtn");
+    const commentsContainer = document.getElementById("commentsContainer");
+
+    let comments = JSON.parse(localStorage.getItem(COMMENTS_KEY)) || [];
+    renderComments();
+
+    addCommentBtn.addEventListener("click", () => {
+        const text = commentInput.value.trim();
+        if (text === "") return;
+
+        comments.push(text);
+        localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+        commentInput.value = "";
+        renderComments();
+    });
+
+    function renderComments() {
+        commentsContainer.innerHTML = "";
+        comments.forEach((comment, index) => {
+            const div = document.createElement("div");
+            div.classList.add("comment");
+
+            const span = document.createElement("span");
+            span.textContent = comment;
+
+            const delBtn = document.createElement("button");
+            delBtn.textContent = "🗑";
+            delBtn.addEventListener("click", () => {
+                comments.splice(index, 1);
+                localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+                renderComments();
+            });
+
+            div.appendChild(span);
+            div.appendChild(delBtn);
+            commentsContainer.appendChild(div);
+        });
+    }
+</script>
+
+
+
+
+</body>
+</html>
