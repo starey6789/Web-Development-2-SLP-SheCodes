@@ -11,15 +11,13 @@
 <body>
   <div class="container">
     <!-- Sidebar -->
-    <div class="sidebar">
-      <ul>
-        <li><a href="../homePage/index.html"><img src="../Images/Home.png" alt="Home"></a></li> 
-        <li><a href="personalProfile.html"><img src="../Images/icons8-user-default-64.png" alt="Profile"></a></li>
-        <li><a href="../artistsPage/artists.html"><img src="../Images/Artist.png" alt="Artists"></a></li>
-        <li><a href="artistRev.html"><img src="../Images/Button toggleable.png" alt="Add Artist Review"></a></li>
-        <li><a href="venueRev.html"><img src="../Images/Button toggleable.png" alt="Add Venue Review"></a></li>
-      </ul>
-    </div>
+        <div class="sidebar">
+        <ul>
+            <li><a href="../homePage/index.html"><img src="../Images/Home.png" alt="Home"></a></li> 
+            <li><a href="../personalProfilePage/personalProfile.html"><img src="../Images/user.png" alt="Profile"></a></li>
+            <li><a href="../artistsPage/venue1.html"><img src="../Images/venue-rating.png" alt="Venues"></a></li>
+        </ul>
+        </div>
 
     <!-- Main Content -->
     <div class="content">
@@ -83,28 +81,13 @@
           </div>
         </div>
 
-      <!-- Favorite Songs -->
-      <div class="fav-card">
-        <h2>Favorite Songs</h2>
-        <div class="songs-grid">
-          <div class="song-item">
-            <span class="music-note">🎵</span>
-            <p class="song-info">Super Shy<br><small>New Jeans</small></p>
-          </div>
-          <div class="song-item">
-            <span class="music-note">🎵</span>
-            <p class="song-info">Be Sweet<br><small>Japanese Breakfast</small></p>
-          </div>
-          <div class="song-item">
-            <span class="music-note">🎵</span>
-            <p class="song-info">Solar Power<br><small>Lorde</small></p>
-          </div>
-          <div class="song-item">
-            <span class="music-note">🎵</span>
-            <p class="song-info">Motion Sickness<br><small>Phoebe Bridgers</small></p>
+        <!-- Favorite Songs -->
+        <div class="fav-card">
+          <h2>Songs</h2>
+          <div class="songs-grid">
+            <span>🎵</span><span>🎵</span><span>🎵</span><span>🎵</span>
           </div>
         </div>
-      </div>
 
         <!-- Top Genres -->
         <div class="fav-card">
@@ -116,102 +99,41 @@
         
       
       <!-- Scrollable review posts -->
-    <div class="posts-container">
-      <h2 class="posts-title">Post</h2>
-      <!--Post 1-->
-        <div class="post">
-          <div class="post-header">
-            <img src="../Images/ArtistPic2.png" alt="Artist Thumbnail" class="artist-thumb">
-            <div class="post-header-text">
-              <h3>Dijon</h3>
-              <p class="venue"><span class="location-icon">📍</span> The Greek Theatre, LA</p>
-            </div>
-          </div>
+  <div class="posts-container">
+    <h2 class="posts-title">Post</h2>
 
-          <div class="rating-section">
-            <div class="artist-rating">
-              <strong>Artist</strong> ★★★☆☆
-              <p class="notes">Notes: loved the vocals, super amazing performance knocked off stars because he didn't play all my fav songs </p>
-            </div>
-            <div class="venue-rating">
-              <strong>Venue</strong> ★★★☆☆
-              <p class="notes">Notes: great acoustics, Lighting, and views from any seat but limited parking.</p>
-            </div>
-          </div>
+    <div class="post">
+      <div class="post-header">
+        <img src="../Images/ArtistPic1.png" alt="Artist Thumbnail" class="artist-thumb">
 
-          <div class="post-body">
-            <p>Great venue, super nice staff! Warning: no video cameras allowed, but I snuck my camera in my boot this time and passed with flying colors :D</p>
-          </div>
-
-          <img src="../Images/Concert3.png" alt="Concert" class="post-image">
-          <p>Date: 10/28/2025</p>
+        <div class="post-header-text">
+          <h3>Japanese Breakfast</h3>
+          <p class="venue"><span class="location-icon">📍</span> The Greek Theatre, LA</p>
         </div>
-      <!--Post 2-->
-      <div class="post">
-        <div class="post-header">
-          <img src="../Images/ArtistPic1.png" alt="Artist Thumbnail" class="artist-thumb">
-
-          <div class="post-header-text">
-            <h3>Japanese Breakfast</h3>
-            <p class="venue"><span class="location-icon">📍</span> The Greek Theatre, LA</p>
-          </div>
-        </div>
-
-        <div class="rating-section">
-          <div class="artist-rating">
-            <strong>Artist</strong> ★★★★☆
-            <p class="notes">Notes: Sounds exactly like she does on the album! Vocals were amazing</p>
-          </div>
-          <div class="venue-rating">
-            <strong>Venue</strong> ★★★★☆
-            <p class="notes">Notes: Employees were so nice! Food is very pricey though :/</p>
-          </div>
-        </div>
-
-        <div class="post-body">
-          <p>Great venue, super nice staff! Not a lot of parking :( Warning! they do not allow video cameras but they do have a free check-in to hold your stuff. Japanese Breakfast was amazing, sounded great, and yay confetti!</p>
-        </div>
-
-        <img src="../Images/Concert.png" alt="Concert" class="post-image">
-        <p>Date: 08/22/2025</p>
-        </div>
-
-        <!--Post 3-->
-      <div class="post">
-        <div class="post-header">
-          <img src="../Images/ConcetArtist2.png" alt="Artist Thumbnail" class="artist-thumb">
-          <div class="post-header-text">
-            <h3>Bôa</h3>
-            <p class="venue"><span class="location-icon">📍</span> The Fonda, LA</p>
-          </div>
-        </div>
-
-        <div class="rating-section">
-          <div class="artist-rating">
-            <strong>Artist</strong> ★★☆☆☆
-            <p class="notes">Notes: loved the vocals, but sometimes the instruments overpowered the vocals </p>
-          </div>
-          <div class="venue-rating">
-            <strong>Venue</strong> ★★☆☆☆
-            <p class="notes">Notes: Standing venue but not slanted, unfortunatley a tall person blocked my view the whole show :(</p>
-          </div>
-        </div>
-
-        <div class="post-body">
-          <p>Good Vibes overall!, couldn't enjoy the concert fully though because of the lack of visibility and room. On the bright side they played Duvet like 3 times!</p>
-        </div>
-
-        <img src="../Images/Concert2.png" alt="Concert" class="post-image">
-        <p>Date: 09/12/2024</p>
       </div>
-      
 
+      <div class="rating-section">
+        <div class="artist-rating">
+          <strong>Artist</strong> ★★★★★
+          <p class="notes">Notes: Sounds exactly like she does on the album! Vocals were amazing</p>
+        </div>
+        <div class="venue-rating">
+          <strong>Venue</strong> ★★★★★
+          <p class="notes">Notes: Employees were so nice! Food is very pricey though :/</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+        <p>Great venue, super nice staff! Not a lot of parking :( Warning! they do not allow video cameras but they do have a free check-in to hold your stuff. Japanese Breakfast was amazing, sounded great, and yay confetti!</p>
+      </div>
+
+      <img src="../Images/Concert.png" alt="Concert" class="post-image">
+    </div>
+  </div>
         
-      </div><!--end post-->
-    </div> <!--end post-container-->
-        
-  </div> <!--end content-->
-</div> <!-- end container-->
+      </div>
+    </div> <!--end content-->
+  </div> <!-- end container-->
 
   <script src="scripts.js"></script>
 </body>
