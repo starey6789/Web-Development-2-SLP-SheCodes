@@ -12,3 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     populate();
 });
+
+let bg = document.getElementById("background");
+let crowd = document.getElementById("crowd");
+let header = document.getElementById("text");
+
+let rates = {
+    bg: 0.05,
+    crowd:0.5,
+  }
+
+  const handleScroll = () => {
+    let scrollDistance = window.scrollY;
+  
+    bg.style.top = scrollDistance * rates.bg + 'px';
+    crowd.style.top = scrollDistance * rates.crowd + 'px';
+  }
+
+  window.addEventListener('scroll', handleScroll)
