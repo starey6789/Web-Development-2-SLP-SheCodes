@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="artists.css">
+    <title>Tate McRae Concerts</title>
+</head>
+<body>
+
+    <div class="artist-switch">
+        <a id="switch-artist" href="#">&#8594; Next Artist</a>
+    </div>
+
+<!-- Sidebar -->
+<div class="sidebar"></div>
+
+<!-- HERO (full-screen image with heading + tours inside) -->
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Tate McRae Concerts</h1>
+        <div class="hero-tours">
+            <p><strong>Past Tours:</strong></p>
+            <ul>
+                <li>2022 — <em>Too Young to Be Sad Tour</em></li>
+                <li>2024 — <a href="#thinklater" class="scroll-link"><em>Think Later World Tour</em></a></li>
+                <li>2025 — <a href="#misspossessive" class="scroll-link"><em>Miss Possessive Tour</em></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- Page below the image -->
+<main class="purple-section" id="misspossessive">
+    <div class="tour-layout">
+        <!-- Left side: the poster -->
+        <div class="poster">
+            <img src="artistImages/mpt.jpg" alt="Miss Possessive Tour Poster">
+        </div>
+
+        <!-- Right side: your text -->
+        <div class="tour-info">
+            <h2>Miss Possessive Tour</h2>
+            <p>Here’s the full tour schedule and some details about Tate McRae’s 2025 world tour.</p>
+            <ul>
+              <li>08/05/25 – Vancouver, BC @ Rogers Arena</li>
+              <li>08/07/25 – Edmonton, AB @ Rogers Place</li>
+              <li>08/09/25 – Winnipeg, MB @ Canada Life Centre</li>
+              <li>08/13/25 – Saint Paul, MN @ Xcel Energy Center</li>
+              <li>08/15/25 – Chicago, IL @ United Center</li>
+              <li>08/16/25 – Detroit, MI @ Little Caesars Arena</li>
+              <li>08/19/25 – Toronto, ON @ Scotiabank Arena</li>
+              <li>08/22/25 – Ottawa, ON @ Canadian Tire Centre</li>
+              <li>08/24/25 – Montreal, QC @ Centre Bell</li>
+              <li>08/26/25 – Boston, MA @ TD Garden</li>
+              <li>08/31/25 – Baltimore, MD @ CFG Bank Arena</li>
+              <li>09/03/25 – New York, NY @ Madison Square Garden</li>
+              <li>09/06/25 – Philadelphia, PA @ Wells Fargo Center</li>
+              <li>09/09/25 – Atlanta, GA @ State Farm Arena</li>
+              <li>09/11/25 – Nashville, TN @ Bridgestone Arena</li>
+              <li>09/13/25 – Orlando, FL @ Kia Center</li>
+              <li>09/16/25 – Austin, TX @ Moody Center</li>
+              <li>09/18/25 – Dallas, TX @ American Airlines Center</li>
+              <li>09/20/25 – Denver, CO @ Ball Arena</li>
+              <li>09/24/25 – San Francisco, CA @ Chase Center</li>
+              <li>09/26/25 – Inglewood, CA @ Kia Forum</li>
+              <li>10/02/25 – Seattle, WA @ Climate Pledge Arena</li>
+              <li>10/03/25 – Seattle, WA @ Climate Pledge Arena</li>
+              <li>10/05/25 – Sacramento, CA @ Golden 1 Center</li>
+              <li>10/09/25 – Omaha, NE @ CHI Health Center</li>
+              <li>10/11/25 – St. Louis, MO @ Enterprise Center</li>
+              <li>10/13/25 – Detroit, MI @ Little Caesars Arena</li>
+              <li>10/15/25 – Pittsburgh, PA @ PPG Paints Arena</li>
+              <li>10/17/25 – Boston, MA @ TD Garden</li>
+              <li>10/18/25 – New York, NY @ Madison Square Garden Arena</li>
+              <li>10/21/25 – Chicago, IL @ United Center</li>
+              <li>10/22/25 – Grand Rapids, MI @ Van Andel Arena</li>
+              <li>10/24/25 – Charlotte, NC @ Spectrum Center</li>
+              <li>10/25/25 – Raleigh, NC @ Lenovo Arena</li>
+              <li>10/28/25 – Kansas City, MO @ T-Mobile Center</li>
+              <li>10/29/25 – Tulsa, OK @ BOK Center</li>
+              <li>10/31/25 – Austin, TX @ Moody Center</li>
+              <li>11/04/25 – Phoenix, AZ @ Footprint Center</li>
+              <li>11/05/25 – Phoenix, AZ @ Footprint Center</li>
+              <li>11/07/25 – Palm Desert, CA @ Acrisure Arena at Greater Palm Springs</li>
+              <li>11/08/25 – Inglewood, CA @ The Kia Forum</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- Tickets preview slideshow (MISS POSSESSIVE) -->
+    <section class="tickets" id="tickets1">
+        <h3>TICKET PREVIEW</h3>
+        <div class="ticket-slideshow">
+            <div class="mySlide fade">
+                <img src="artistImages/fronttix.jpg" alt="Miss Possessive Tour ticket front">
+            </div>
+            <div class="mySlide fade">
+                <img src="artistImages/backtix.jpg" alt="Miss Possessive Tour ticket back">
+            </div>
+            <!-- controls -->
+            <a class="prev" aria-label="Previous slide" onclick="plus('tickets1', -1)">&#10094;</a>
+            <a class="next" aria-label="Next slide" onclick="plus('tickets1',  1)">&#10095;</a>
+        </div>
+        <!-- dots -->
+        <div class="dots" role="tablist">
+            <span class="dot" onclick="go('tickets1', 1)" aria-label="Slide 1"></span>
+            <span class="dot" onclick="go('tickets1', 2)" aria-label="Slide 2"></span>
+        </div>
+    </section>
+
+    <!-- Image divider section -->
+    <section class="image-divider"></section>
+
+    <!-- ===================== Think Later World Tour ===================== -->
+    <section class="purple-section" id="thinklater">
+        <div class="tour-layout">
+            <!-- Left: poster -->
+            <div class="poster">
+                <img src="artistImages/tlwt.jpg" alt="Think Later World Tour Poster">
+            </div>
+
+            <!-- Right: copy + dates -->
+            <div class="tour-info">
+                <h2>Think Later World Tour</h2>
+                <p>Highlights from the 2024 run. (You can edit/expand these.)</p>
+                <ul>
+                    <li>Apr 17 — Dublin, IE</li>
+                    <li>Apr 20 — London, UK</li>
+                    <li>Apr 25 — Berlin, DE</li>
+                    <li>May 01 — Milan, IT</li>
+                    <li>May 12 — Lisbon, PT</li>
+                    <li>Jul 30 — Maryland Heights, MO</li>
+                    <li>Aug 07 — Indianapolis, IN</li>
+                    <li>Aug 11 — Boston, MA</li>
+                    <li>Aug 14 — Washington, DC</li>
+                    <li>Aug 22 — Atlanta, GA</li>
+                    <li>Aug 28 — New York, NY</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tickets slideshow (THINK LATER) -->
+        <section class="tickets" id="tickets2">
+            <h3>TICKET PREVIEW</h3>
+            <div class="ticket-slideshow">
+                <div class="mySlide fade">
+                    <img src="artistImages/fronttl.jpg" alt="TLWT ticket front">
+                </div>
+                <div class="mySlide fade">
+                    <img src="artistImages/backtl.jpg" alt="TLWT ticket back">
+                </div>
+                <a class="prev" onclick="plus('tickets2', -1)">&#10094;</a>
+                <a class="next" onclick="plus('tickets2',  1)">&#10095;</a>
+            </div>
+            <div class="dots">
+                <span class="dot" onclick="go('tickets2', 1)"></span>
+                <span class="dot" onclick="go('tickets2', 2)"></span>
+            </div>
+        </section>
+    </section>
+</main>
+
+<!-- ===================== Footer Comment Section ===================== -->
+<footer class="comment-footer">
+  <!-- Add Comment Button -->
+  <button id="addCommentBtn">+ Add Comment</button>
+
+  <!-- Comment Form -->
+  <form id="commentForm" style="display: none; flex-direction: column; gap: 10px; margin-top: 10px;">
+    <textarea id="commentText" rows="3" placeholder="Write your comment..."></textarea>
+
+    <!-- Interactive Star Rating -->
+    <div class="stars" id="starContainer">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
+    </div>
+
+    <button type="button" id="submitComment">Post</button>
+  </form>
+
+  <!-- Comments List -->
+  <div id="commentsList"></div>
+</footer>
+
+
+<!-- Scoped slideshow controller (works for multiple carousels) -->
+<script>
+    // per-slideshow state
+    const sliderState = {};
+
+    function show(id, n) {
+        const slides = document.querySelectorAll(`#${id} .mySlide`);
+        const dots   = document.querySelectorAll(`#${id} .dot`);
+        if (!slides.length) return;
+
+        if (!(id in sliderState)) sliderState[id] = 1;
+
+        // wrap
+        if (n > slides.length) sliderState[id] = 1;
+        else if (n < 1)        sliderState[id] = slides.length;
+        else                   sliderState[id] = n;
+
+        slides.forEach(s => s.style.display = "none");
+        dots.forEach(d => d.classList.remove("active"));
+
+        slides[sliderState[id] - 1].style.display = "block";
+        if (dots[sliderState[id] - 1]) dots[sliderState[id] - 1].classList.add("active");
+    }
+
+    function plus(id, delta) { show(id, (sliderState[id] || 1) + delta); }
+    function go(id, n)       { show(id, n); }
+
+    // init both slideshows
+    document.addEventListener('DOMContentLoaded', () => {
+        show('tickets1', 1);
+        show('tickets2', 1);
+    });
+</script>
+
+<!-- Comment Section JS with localStorage and delete -->
+<script>
+const addCommentBtn = document.getElementById("addCommentBtn");
+const commentForm = document.getElementById("commentForm");
+const submitComment = document.getElementById("submitComment");
+const commentsList = document.getElementById("commentsList");
+const stars = document.querySelectorAll(".star");
+let selectedRating = 0;
+
+// Determine current artist based on the page filename
+const currentArtist = window.location.pathname.split("/").pop().replace('.html','');
+const storageKey = `comments_${currentArtist}`;
+
+// Load saved comments for this artist
+document.addEventListener("DOMContentLoaded", () => {
+  const savedComments = JSON.parse(localStorage.getItem(storageKey) || "[]");
+  savedComments.forEach(c => addCommentToDOM(c.text, c.rating));
+});
+
+// Toggle comment form
+addCommentBtn.addEventListener("click", () => {
+  commentForm.style.display = commentForm.style.display === "none" ? "flex" : "none";
+});
+
+// Star hover & click
+stars.forEach((star, index) => {
+  star.addEventListener("mouseover", () => {
+    stars.forEach((s, i) => s.classList.toggle("hovered", i <= index));
+  });
+
+  star.addEventListener("mouseout", () => {
+    stars.forEach((s, i) => {
+      s.classList.remove("hovered");
+      if (i < selectedRating) s.classList.add("selected");
+    });
+  });
+
+  star.addEventListener("click", () => {
+    selectedRating = index + 1;
+    stars.forEach((s, i) => s.classList.toggle("selected", i < selectedRating));
+  });
+});
+
+// Submit comment
+submitComment.addEventListener("click", () => {
+  const text = document.getElementById("commentText").value.trim();
+
+  if (!text || selectedRating === 0) {
+    alert("Please write a comment and select a rating!");
+    return;
+  }
+
+  addCommentToDOM(text, selectedRating);
+  saveComment(text, selectedRating);
+
+  // Reset form
+  document.getElementById("commentText").value = "";
+  selectedRating = 0;
+  stars.forEach(s => s.classList.remove("selected"));
+  commentForm.style.display = "none";
+});
+
+// Add comment to DOM
+function addCommentToDOM(text, rating) {
+  const comment = document.createElement("div");
+  comment.className = "comment";
+
+  let starsDisplay = "";
+  for (let i = 0; i < rating; i++) starsDisplay += "★";
+  for (let i = rating; i < 5; i++) starsDisplay += "☆";
+
+  comment.innerHTML = `
+    <div class="comment-content">
+      <span class="comment-text">${text}</span>
+      <span class="comment-stars">${starsDisplay}</span>
+    </div>
+    <button class="delete-comment">🗑️</button>
+  `;
+
+  commentsList.appendChild(comment);
+
+  // Delete functionality
+  comment.querySelector(".delete-comment").addEventListener("click", () => {
+    comment.remove();
+    updateLocalStorage();
+  });
+}
+
+// Save comment to artist-specific localStorage
+function saveComment(text, rating) {
+  const comments = JSON.parse(localStorage.getItem(storageKey) || "[]");
+  comments.push({ text, rating });
+  localStorage.setItem(storageKey, JSON.stringify(comments));
+}
+
+// Update localStorage after deletion
+function updateLocalStorage() {
+  const comments = [];
+  document.querySelectorAll("#commentsList .comment").forEach(c => {
+    const text = c.querySelector(".comment-text").textContent;
+    const starsText = c.querySelector(".comment-stars").textContent;
+    const rating = starsText.replace(/☆/g, "").length;
+    comments.push({ text, rating });
+  });
+  localStorage.setItem(storageKey, JSON.stringify(comments));
+}
+</script>
+
+
+<script src="scripts/artistSwitch.js"></script>
+</body>
+</html>
