@@ -243,6 +243,21 @@ body {
   background-color: #6c4dc0;
 }
 
+.artist-item,
+.venue-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* optional: centers text under image */
+}
+
+.artist-info,
+.venue-info {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #ffffff; /* or whatever your text color is */
+  line-height: 1.1;
+}
+
 /* Favorite songs */
 .songs-grid {
   display: grid;
@@ -259,12 +274,19 @@ body {
 
 .music-note {
   font-size: 2rem; /* size of the note */
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 20%;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .song-info {
   margin-top: 5px;
   font-size: 0.8rem;
-  color: #ddd; /* or whatever your text color is */
+  color: #ffffff; /* or whatever your text color is */
   line-height: 1.1;
 }
 
