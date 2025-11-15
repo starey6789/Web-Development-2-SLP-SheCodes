@@ -126,14 +126,18 @@ body {
 /* Second row: Stars + Stats */
 .profile-middle {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .profile-stars {
+  flex:1;
   display: flex;
-  align-items: center;
+  flex-direction: column;  /* stack title above stars */
+  align-items: center;     /* center horizontally */
+  justify-content: center; /* center vertically */
+  text-align: center;
   gap: 10px;
+  margin-right: 60px;
 }
 
 .stars span {
@@ -143,8 +147,10 @@ body {
 
 /* Stats inline with stars */
 .profile-stats {
+  flex:1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .stats {
